@@ -73,7 +73,6 @@ body {
     font-weight: 700;
     color: #104e4e;
     margin-bottom: 8px;
-
 }
 
 .section-subtitle {
@@ -178,7 +177,10 @@ body {
     display: inline-block;
 }
 
-
+.btn-cta:hover {
+    transform: scale(1.05);
+    background-color: #cb651f;
+}
 
 .slider-dots {
     position: absolute;
@@ -311,7 +313,9 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-
+.badge-rating i {
+    color: #fbc02d;
+}
 
 /* BOTÕES DE FAVORITAR E CURTIR COM ESTADOS ATIVOS */
 .btn-bookmark {
