@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ipê Parque - Sou Ibiapaba</title>
+    <link rel="stylesheet" href="StyleIndex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* ESTILOS EXCLUSIVOS - IPÊ PARQUE (LAYOUT EDITORIAL & DIVERSOS) */
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px 80px;
+            color: #1f2937;
+        }
+
+        /* BANNER CABEÇALHO */
+        .ipe-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .ipe-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 16px;
+        }
+
+        .ipe-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            line-height: 1.15;
+            color: #0f5132;
+            margin-bottom: 16px;
+        }
+
+        .ipe-lead {
+            font-size: 1.25rem;
+            color: #4b5563;
+            max-width: 820px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* BARRA HORIZONTAL DE STATS / FICHA TÉCNICA */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 35px 0 45px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .stats-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ipe-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-item i {
+            font-size: 1.8rem;
+            color: #16a34a;
+            margin-bottom: 8px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #14532d;
+            margin-bottom: 2px;
+        }
+
+        .stat-item span {
+            font-size: 0.88rem;
+            color: #6b7280;
+        }
+
+        /* GALERIA HERO TRIANGULADA / MOSAICO */
+        .hero-mosaic {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 768px) {
+            .hero-mosaic {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mosaic-main img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mosaic-side {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .mosaic-side img {
+            width: 100%;
+            height: 202px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* TEXTO PRINCIPAL */
+        .content-block {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.08rem;
+            line-height: 1.85;
+            color: #374151;
+        }
+
+        .content-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #0f5132;
+            margin: 40px 0 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .content-block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #d97706;
+            border-radius: 2px;
+        }
+
+        .highlight-quote {
+            background-color: #fffbeb;
+            border-left: 4px solid #d97706;
+            padding: 24px 28px;
+            border-radius: 0 16px 16px 0;
+            margin: 35px 0;
+            font-size: 1.15rem;
+            color: #92400e;
+            font-style: italic;
+        }
+
+        /* GRID DE ATRAÇÕES EM 3 COLUNAS */
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 850px) {
+            .attractions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .attractions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .attraction-box {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .attraction-box:hover {
+            border-color: #16a34a;
+            transform: translateY(-50%);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        }
+
+        .attraction-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: #f0fdf4;
+            color: #16a34a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 16px;
+        }
+
+        .attraction-box h3 {
+            font-size: 1.15rem;
+            color: #0f5132;
+            margin-bottom: 8px;
+        }
+
+        .attraction-box p {
+            font-size: 0.92rem;
+            color: #6b7280;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* DICAS E AGENDAMENTO (CARD INFERIOR DUPLO) */
+        .bottom-action-banner {
+            background: linear-gradient(135deg, #0f5132 0%, #14532d 100%);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 60px;
+            box-shadow: 0 20px 25px -5px rgba(15, 81, 50, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .bottom-action-banner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px 20px;
+            }
+        }
+
+        .action-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fef3c7;
+        }
+
+        .action-content p {
+            font-size: 1rem;
+            color: #d1fae5;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .btn-action-large {
+            background-color: #d97706;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-action-large:hover {
+            background-color: #b45309;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="navbar container">
+            <div class="logo">Sou<span> Ibiapaba</span></div>
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="index.html">Atrativos</a>
+                <a href="Roteiros.html">Roteiros</a>
+                <a href="Galeria.html">Galeria</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="nav-buttons">
+                <a href="#" class="btn-text">Entrar</a>
+                <a href="#" class="btn-primary-small">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                url('ImgTeste.jpg') no-repeat center center/cover;">
+        <div class="hero-content container">
+            <h1>Ipê Parque</h1>
+            <p>Aventura, tranquilidade e o melhor do lazer em meio às flores e serras da Ibiapaba</p>
+            <a href="#artigo" class="btn-cta">Explorar o Parque</a>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE ATRATIVOS -->
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="carousel-item">
+                <a href="#"><img src="ImgTeste.jpg" alt="Ipê Parque"></a>
+                <span>Ipê Parque</span>
+            </div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Igreja do Céu"><span>Igreja do Céu</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Mirante da Serra"><span>Mirante da Serra</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Parque de Ubajara"><span>Parque de Ubajara</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Sitio do Bosco"><span>Sitio do Bosco</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 6"><span>Ponto 6</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 7"><span>Ponto 7</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 8"><span>Ponto 8</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 9"><span>Ponto 9</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 10"><span>Ponto 10</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 11"><span>Ponto 11</span></div>
+            <div class="carousel-item"><img src="ImgTeste.jpg" alt="Ponto 12"><span>Ponto 12</span></div>
+        </div>
+    </div>
+
+    <!-- PÁGINA DO IPÊ PARQUE (LAYOUT EDITORIAL) -->
+    <main id="artigo" class="page-wrapper">
+        
+        <!-- Cabeçalho Principal -->
+        <header class="ipe-header">
+            <div class="ipe-tag">
+                <i class="ph ph-tree-evergreen"></i> Parque Ecológico & Lazer
+            </div>
+            <h1 class="ipe-title">Ipê Parque: Natureza e Diversão em Família</h1>
+            <p class="ipe-lead">
+                Um refúgio verde acolhedor que combina trilhas sombreadas, opções de aventura, áreas de descanso e jardins floridos no coração da Serra da Ibiapaba.
+            </p>
+        </header>
+
+        <!-- Barra de Estatísticas / Ficha Rápida -->
+        <section class="stats-strip">
+            <div class="stat-item">
+                <i class="ph ph-users-three"></i>
+                <strong>Público</strong>
+                <span>Famílias e Casais</span>
+            </div>
+            <div class="stat-item">
+                <i class="ph ph-smiley-smile"></i>
+                <strong>Dificuldade</strong>
+                <span>Fácil / Acessível</span>
+            </div>
+            <div class="stat-item">
+                <i class="ph ph-sun"></i>
+                <strong>Melhor Clima</strong>
+                <span>Ano todo (Manhãs suaves)</span>
+            </div>
+            <div class="stat-item">
+                <i class="ph ph-map-pin-line"></i>
+                <strong>Local</strong>
+                <span>Serra da Ibiapaba</span>
+            </div>
+        </section>
+
+        <!-- Mosaico Visual de Fotos -->
+        <section class="hero-mosaic">
+            <div class="mosaic-main">
+                <img src="ImgTeste.jpg" alt="Área verde e jardins do Ipê Parque">
+            </div>
+            <div class="mosaic-side">
+                <img src="ImgTeste.jpg" alt="Ipês floridos e trilha">
+                <img src="ImgTeste.jpg" alt="Espaço de lazer e gastronomia">
+            </div>
+        </section>
+
+        <!-- Bloco de Conteúdo Narrativo -->
+        <article class="content-block">
+            <p>
+                O <strong>Ipê Parque</strong> nasceu com o propósito de oferecer um contato intimista e revigorante com a flora da região serrana. Famoso por sua vegetação bem cuidada e pelos ipês que colorem o espaço durante as épocas de florada, o parque é o destino ideal para quem quer escapar da rotina urbana sem abrir mão do conforto e de boas opções de entretenimento.
+            </p>
+
+            <div class="highlight-quote">
+                "Caminhar sob a copa dos ipês e sentir a brisa fresca da serra torna o Ipê Parque uma parada obrigatória no roteiro de quem visita a Ibiapaba."
+            </div>
+
+            <h2>O Que Fazer no Ipê Parque</h2>
+            <p>
+                Com uma estrutura planejada para integrar pessoas de todas as idades, o parque oferece atividades variadas que vão do descanso contemplativo às experiências esportivas ao ar livre.
+            </p>
+
+            <!-- Grid de Recursos/Atrações de 3 Colunas -->
+            <div class="attractions-grid">
+                <div class="attraction-box">
+                    <div class="attraction-icon-wrapper">
+                        <i class="ph ph-flower-tulip"></i>
+                    </div>
+                    <h3>Jardins & Alamedas</h3>
+                    <p>Espaços floridos perfeitos para caminhadas tranquilas, ensaios fotográficos e momentos de leitura.</p>
+                </div>
+
+                <div class="attraction-box">
+                    <div class="attraction-icon-wrapper">
+                        <i class="ph ph-person-simple-bike"></i>
+                    </div>
+                    <h3>Aventura & Trilhas</h3>
+                    <p>Caminhos ecológicos sinalizados, opções de circuitos leves e atividades para quem busca movimento.</p>
+                </div>
+
+                <div class="attraction-box">
+                    <div class="attraction-icon-wrapper">
+                        <i class="ph ph-coffee"></i>
+                    </div>
+                    <h3>Café Regional</h3>
+                    <p>Cardápio especial com bolos caseiros, tapiocas, cafés finos e sucos de frutas da época.</p>
+                </div>
+            </div>
+
+            <h2>Momentos Inesquecíveis</h2>
+            <p>
+                Ao longo das estações, o parque se transforma. Na época da florada dos ipês, o chão se cobre de pétalas amarelas e rosas, criando um espetáculo visual único que atrai fotógrafos de todo o estado. Para quem viaja com crianças, há áreas de lazer seguras e gramados abertos ideais para piqueniques.
+            </p>
+        </article>
+
+        <!-- Banner Inferior de Chamada para Ação / Agendamento -->
+        <section class="bottom-action-banner">
+            <div class="action-content">
+                <h3>Planeje sua visita ao Ipê Parque</h3>
+                <p>Combine sua viagem com outros atrativos da Ibiapaba ou monte um roteiro personalizado com nossos guias parceiros.</p>
+            </div>
+            <div>
+                <a href="Contato.html" class="btn-action-large">
+                    <i class="ph ph-calendar-check"></i> Fazer Agendamento
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-brand">
+                <div class="logo">Sou <span>Ibiapaba</span></div>
+            </div>
+            <nav class="footer-nav">
+                <a href="Guias.html">Guias</a>
+                <a href="Hospedagem.html">Hospedagens</a>
+                <a href="Gastronomia.html">Gastronomia</a>
+                <a href="Contato.html">Contato</a>
+            </nav>
+            <div class="footer-contact">
+                <span>(85) 99999-8888</span>
+                <span>•</span>
+                <span>souibiapaba@gmail.com</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sou Ibiapaba. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT UNIFICADO DO CARROSSEL -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.getElementById('carousel');
+        if (!carousel) return;
+
+        let isDragging = false;
+        let startX, scrollStart;
+        let autoPlayTimer = null;
+        let currentIndex = 0;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX;
+            scrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('mouseleave', () => { isDragging = false; startAutoPlay(); });
+        carousel.addEventListener('mouseup', () => { isDragging = false; startAutoPlay(); });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = x - startX;
+            carousel.scrollLeft = scrollStart - walk;
+        });
+
+        let touchStartX, touchScrollStart;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].pageX;
+            touchScrollStart = carousel.scrollLeft;
+            stopAutoPlay();
+        });
+
+        carousel.addEventListener('touchend', () => { startAutoPlay(); });
+
+        carousel.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = x - touchStartX;
+            carousel.scrollLeft = touchScrollStart - walk;
+        });
+
+        function getItemWidth() {
+            const firstItem = carousel.querySelector('.carousel-item');
+            if (!firstItem) return 0;
+            const gap = parseFloat(getComputedStyle(carousel).gap) || 16;
+            return firstItem.offsetWidth + gap;
+        }
+
+        function autoPlay() {
+            const itemWidth = getItemWidth();
+            const totalItems = carousel.children.length;
+            if (itemWidth === 0 || totalItems === 0) return;
+
+            currentIndex = (currentIndex + 1) % totalItems;
+
+            carousel.scrollTo({
+                left: itemWidth * currentIndex,
+                behavior: 'smooth'
+            });
+        }
+
+        function startAutoPlay() {
+            if (!autoPlayTimer) {
+                autoPlayTimer = setInterval(autoPlay, 3500);
+            }
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+
+        startAutoPlay();
+    });
+    </script>
+</body>
+</html>
