@@ -1,0 +1,530 @@
+/* RESET DE ESTILOS MÍNIMO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-color: #488253;    /* Laranja do CTA */
+    --page-marking: #d79162;
+    --bg-dark: #fff;          /* Verde escuro do header */
+    --text-dark: #488253;
+    --bg-light: #eaf3eb;         /* Off-white de fundo do site */
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    overflow-x: hidden; 
+    padding-top: 60px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* NAVBAR / HEADER */
+.header {
+    background-color: var(--bg-dark);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #488253;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+}
+
+.logo span {
+    color: var(--primary-color);
+    margin-left: 5px;
+    
+}
+.section-title-container {
+    text-align: center;
+    margin-bottom: 36px;
+    padding: 0 16px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #104e4e;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    color: #104e4e;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Ajuste para telas menores (celulares) */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.75rem;
+    }
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+.nav-menu a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #fff;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-text {
+    color: #488253;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-primary-small {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.logo img{
+    width: 40px;               
+    height: auto;
+    margin-left: 0px;
+    margin-right: 10px
+}
+
+/* HERO BANNER */
+.hero {
+    
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding-top: 80px;
+
+}
+
+.hero-content h1 {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.btn-cta {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    background-color: #cb651f;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+/* CARROSSEL */
+.carousel-container {
+    overflow: hidden;
+    max-width: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    gap: 16px;
+    cursor: grab;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 30%;
+    height: 190px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    scroll-snap-align: center;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* CARDS DE PONTOS TURÍSTICOS */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge-distance {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge-rating {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.badge-rating i {
+    color: #fbc02d;
+}
+
+/* BOTÕES DE FAVORITAR E CURTIR COM ESTADOS ATIVOS */
+.btn-bookmark {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.btn-bookmark.ativo {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.card-location {
+    font-size: 0.9rem;
+    color: #5f6c7b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 0.85rem;
+    color: #4a4a4a;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.card-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.tag {
+    border: 1px solid #7c938a;
+    color: #587368;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.btn-likes {
+    border: 1px solid #7c938a;
+    color: #587368;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-likes.ativo {
+    background-color: #1060233f;
+    border-color: #587368;
+    color: #587368;
+}
+
+.btn-share {
+    border: 1px solid #7c938a;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #587368;
+    cursor: pointer;
+}
+
+/* RODAPÉ */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0 10px 0;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.footer-brand .logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #4a5568;
+    margin: 0 10px;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: #2b6cb0;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 8px;
+    color: #718096;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+}
+
+.btn-share {
+    border: 1px solid #7c938a;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #587368;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-share:hover,
+.btn-share:active {
+    background-color: #e2e8f0;
+    color: #1a202c;
+    transform: scale(1.05);
+}
